@@ -1,0 +1,43 @@
+.code{
+  color: #010059;
+}
+
+h2{
+  color: #010059;
+}
+
+pre{
+  font-size: 1.2em;
+  color: #293462;
+  background-color: #d3f6f3;
+  margin: auto 15% 1.2em auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+hr {
+  border-style: none;
+  border-top-style: dotted;
+  border-color: grey;
+  border-width: 5px;
+  width: 90%;
+  margin: 1.2em auto 1.2em auto;
+}
+
+body{
+  margin: auto 10% auto 20pt;
+}
+
+b{
+  font-weight: bolder;
+  color: #4f3a65;
+}
+
+.important{
+  background-color: #f0e3c4;
+}
+
+.rightwall{
+  float: right;
+  margin-left: 30px;
+}

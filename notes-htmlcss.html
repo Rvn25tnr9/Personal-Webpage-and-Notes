@@ -1,0 +1,151 @@
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Notes</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Merriweather&display=swap" rel="stylesheet">
+
+
+  <script type="text/javascript">
+    //Script in javascript
+  </script>
+
+  <meta name="description" content="Notes on HTML">
+  <!--- Metadata for search engines -->
+</head>
+
+<body>
+  <h2>My HTML code</h2>
+  <p>
+    Mark-up (element and tag) <br>
+    em : <em>italic</em> <br>
+    strong : <strong>bold</strong> <br>
+  </p>
+  <br>
+  <hr>
+  Click link and open the new page
+  <p>
+    My favorite things:
+    <ol>
+      <li><a href="https://placebear.com/150/150" target="_blank">Bears</a>
+      <li><a href="https://placekitten.com/150/150" target="_blank">Kittens</a>
+    </ol>
+    <img src="https://placebear.com/150/150" alt="Picture of bear">
+
+    <img src="https://placekitten.com/150/150" alt="Picture of cat"></p>
+  <br>
+  <hr>
+  <h3>HTML Fragments</h3>
+  Snippets of HTML, browser can display but you need to add something
+  to be a full webpage.
+  <p>it looks like this (!DOCTYPE html): html head body </p>
+<hr>
+<h2>HTML Validator</h2>
+<p>Try this webpage <a href="https://validator.w3.org/">validator.w3.org</a></p>
+
+<hr>
+
+<h2>CSS - Cascading Style Stylesheet</h2>
+<br>
+<strong>Document Object Model (DOM </strong>: Tree structure for each HTML element, images, link,page. <br>
+<img src="images/htmlcss/DOM_tree.png" alt="HTML Tree example"><br>
+
+<hr>
+<h2>CSS style</h2>
+There 3 types of CSS writing, but we will discuss 2 first
+<ol>
+  <li><strong>Inline</strong>: Style attribute to apply style directly to an HTML element,<br>
+    Example:
+    <p style="color:red">Make me red!</p>
+    <p style="color:green">Make me green!</p>
+    <p style="color:blue">Make me blue!</p>
+  <li><strong>Internal</strong>: Style element along with a <em>ruleset</em>.
+  <img src="images/htmlcss/CSS_Style.png" alt="inline internal CSS">
+</ol>
+<br>
+<h2>Ruleset and Decleration Box</h2>
+<img src="images/htmlcss/Ruleset_box_css.png" alt="explanation" height="350px" width="400px">
+<br>
+
+<h2>Class and ID</h2>
+<ol>
+  <li><strong>Class:</strong> Group of things with the same characteristics<br>
+  <img src="class.png" alt="Class_example" height=40%>
+  <br><br>
+  <li><strong>ID:</strong> there is only 1 element to apply it to <br>
+  <img src="images/htmlcss/ID.png" alt="ID_example" height=40%>
+</ol>
+<h2>Example:</h2>
+<p>
+  <p> Class can consist of 2 definition, and the effect will be added
+  </p>
+  <h4 class="highlight done">I'm important!</h1>
+  <h4 class="highlight">As am I!</h2>
+  <p class="highlight">Me too!</p>
+
+</p>
+
+<h2>Combining Selector</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors">Click these MDN Web Docs link for more</a> </p>
+<table>
+  <tr>
+  <td><img src="images/htmlcss/com_sel_1.png" alt="first" width=70%> </td>
+  <td><img src="images/htmlcss/com_sel_2.png" alt="second"> </td>
+</tr>
+</table>
+<hr>
+<h2>Cascading</h2>
+<p>Background Color: Black from the BODY applies to all elements, and more specific style like "h1 em" will apply compare to "em" only.</p>
+<img src="images/htmlcss/cascading.png" alt="waterfall command" height="50%">
+
+<hr>
+<h2>Unit Measurement</h2>
+1 inch = 96 pixels, <br>
+1 cm = 37.8 pixels. <br>
+<br><br>
+<h2>Boxes</h2>
+<p>Margin, border, padding, and <strong>float</strong> (to make the picture/text move the right/left side)</p>
+<p> <img src="images/htmlcss/box.png" alt="box-detail" width="50%">
+<br>
+<div class="blueBox">Hooray, a box!
+<div class="redBox"></div></div>
+
+<p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi sit amet mauris commodo. Vitae elementum curabitur vitae nunc sed velit dignissim sodales ut. Volutpat est velit egestas dui id ornare arcu. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Porttitor lacus luctus accumsan tortor posuere ac ut consequat.</p>
+<br>
+<hr>
+<h2>Fonts</h2>
+<p>Font stack, like <strong>font-family: Constantia, Georgia, Serif </strong> </p>
+
+  <p>It ends with a generic font family (serif). This is great because it ensures that even if the browser can't find the other two specific fonts, it will still display the general kind of font we want.</p>
+<br>
+<strong>Sequence of FONT in CSS: <br>
+</strong>
+font_style font_size font_family;<br>
+e.g. h1{
+  font: bold italic 14pt Impact, "Arial Black", sans-serif;
+}
+</p>
+<br>
+<hr>
+<h2>Box Containers</h2>
+<div class="container">
+   <div class="box red">red</div>
+   <div class="box green">green</div>
+   <div class="box yellow">yellow</div>
+</div>
+<br>
+<h2>Flexible box Model - Flexbox</h2>
+<br>
+<p>By entering these code into the class= <strong>"container"</strong>:
+<ol>
+  <li>display: flex;</li>
+  <li>flex-wrap: wrap;</li>
+</ol>
+</p>
+<br><hr>
+
+
+</body>
+
+</html>

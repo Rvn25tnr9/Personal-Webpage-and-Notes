@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pyhton Notes</title>
+    <link rel="stylesheet" href="style-notep.css">
+  </head>
+  <body>
+<h3>Code with Pycodestyle</h3>
+
+<pre>
+start with -- <b>$pycodestyle spin.py</b>
+... spin.py:5:20: E201 whitespace after '('
+... spin.py:5:24: E202 whitespace before ')'
+... spin.py:13:3: E111 indentation is not a multiple of four
+... spin.py:14:1: W391 blank line at end of file
+
+</pre>
+ <hr>
+<h3>Breakfast bot - Refactored #1</h3>
+<pre>
+import time
+
+
+<b>def print_pause(message_to_print):</b>
+print(message_to_print)
+time.sleep(1)
+
+<b>def valid_input(prompt, option1, option2):</b>
+while True:
+    response = input(prompt).lower()
+    if option1 in response:
+        return response
+    elif option2 in response:
+        return response
+    else:
+        print_pause("Sorry I don't understand")
+# print_pause("Your order will be ready shortly.")
+
+
+print_pause("Hello! I am Bob, the Breakfast Bot.")
+print_pause("Today we have two breakfasts available.")
+print_pause("The first is waffles with strawberries and whipped cream.")
+print_pause("The second is sweet potato pancakes with butter and syrup.")
+
+while True:
+<mark>response = valid_input("Please place your order, "
+                          "What do you want to order waffles or pancakes?\n",
+                          "waffles", "pancakes")</mark>
+
+if 'waffles' in response:
+    print_pause("Waffles is it!")
+elif 'pancakes' in response:
+    print_pause("Pancakes is it!")
+print_pause("Your order will be ready shortly")
+
+<mark>order_again = valid_input("Anything else you want to order: yes or no? \n", 'yes', 'no')</mark>
+
+if 'no' in order_again:
+    print_pause("OK Goodbye")
+    break
+elif 'yes' in order_again:
+    print_pause("Very good, I am happy to take the other one")
+</pre>
+<hr>
+<h3>Breakfast Bot - Refactored #1.20</h3>
+<p>We need to create a list of food options in order to make unlimited options</p>
+<pre>
+<b>def valid_input(prompt, options):</b>
+    while True:
+        response = input(prompt).lower()
+        for option in options:
+            if option in response:
+                return response
+        print_pause("Sorry, I don't understand.")
+</pre>
+<hr>
+
+
+<h3>Breakfast bot - Refactored #3</h3>
+<pre>
+<b>def intro():</b>
+    print_pause("Hello! I am Bob, the Breakfast Bot.")
+    print_pause("Today we have two breakfasts available.")
+    print_pause("The first is waffles with strawberries and whipped cream.")
+    print_pause("The second is sweet potato pancakes with butter and syrup.")
+
+<b>def get_order():</b>
+    response = valid_input("Please place your order, "
+                           "What do you want to order waffles or pancakes?\n",
+                           "waffles", "pancakes")
+
+    if 'waffles' in response:
+        print_pause("Waffles is it!")
+    elif 'pancakes' in response:
+        print_pause("Pancakes is it!")
+    print_pause("Your order will be ready shortly")
+
+<b>def order_again():</b>
+    response = valid_input("Anything else you want to order: yes or no? \n", 'yes', 'no')</mark>
+
+    if 'no' in order_again:
+        print_pause("OK Goodbye")
+        ...#delete the 'break' outside the while-loop
+    elif 'yes' in order_again:
+        print_pause("Very good, I am happy to take the other one")
+        get_order()
+        ...#put the get_order() again since the outside While-loop is gone
+
+</pre>
+
+<h3>Current code condition</h3>
+<pre class="important">
+import time
+
+
+intro()
+get_order()
+order_again()
+
+</pre>
+
+<h3>Breakfast bot - Refactored #4</h3>
+<pre>
+<b>def order_breakfast():</b>
+    intro()
+    get_order()
+    order_again()
+
+order_breakfast()
+</pre>
+
+<h3>Choose Green/Blue Room Exercice</h3>
+<pre>
+def green_room():
+    print("You are in the green room.")
+
+
+def blue_room():
+    print("You are in the blue room.")
+
+
+def choose_room():
+    choice = input("Would you like to go to the green room or the blue room?\n")
+    if "blue" in choice:
+        blue_room()
+    elif "green" in choice:
+        green_room()
+    else:
+        print("I dont understand")
+        choose_room()
+
+choose_room()
+</pre>
+
+<hr>
+<h2>Elevator Code</h2>
+
+<h3>Revin do the first elevator code</h3>
+
+<pre class="important">
+import time
+
+
+options = ["1", "2", "3"]
+
+def pause_print(word):
+    print(word)
+    time.sleep(1)
+
+
+def intro():
+    pause_print("You have just arrived at your new job!")
+    pause_print("You are in the elevator.")
+
+
+def choose_number(options):
+    if '1' in options:
+        pause_print("You push the button for the first floor.")
+        pause_print("After a few moments, you find yourself in the lobby.")
+        pause_print("Where would you like to go next?\n")
+    elif '2' in options:
+        pause_print("You push the button for the second floor.")
+        pause_print("After a few moments, you find yourself in the "
+                    "human resource department")
+        pause_print("Where would you like to go next?\n")
+    elif '3' in options:
+        pause_print("You push the button for the third floor.")
+        pause_print("After a few moments, you find yourself in the "
+                    "engineering department.")
+        pause_print("Where would you like to go next?\n")
+
+def valid_input(prompt, options):
+    while True:
+        response = input(prompt).lower()
+        for option in options:
+            if option in response:
+                return response
+        pause_print("Okay we go home")
+        break
+
+def select_floor():
+    response = valid_input("Please enter the number for the floor "
+                           "you would like to visit: \n"
+                           "1. Lobby \n"
+                           "2. Human resources \n"
+                           "3. Engineering department\n", options)
+    if '1' in response:
+        choose_number('1')
+        select_floor()
+    elif '2' in response:
+        choose_number('2')
+        select_floor()
+    elif '3' in response:
+        choose_number('3')
+        select_floor()
+    else:
+        pause_print("Okay, you decided to go home, it's 6pm now")
+
+
+def elevator():
+    intro()
+    select_floor()
+
+
+elevator()
+</pre>
+
+<h3>Solution from Udacity</h3>
+<pre>
+  import time
+
+
+  def print_pause(message_to_print):
+      print(message_to_print)
+      time.sleep(2)
+
+
+  print_pause("You have just arrived at your new job!")
+  print_pause("You are in the elevator.")
+
+  while True:
+      print_pause("Please enter the number for the "
+                  "floor you would like to visit:")
+      floor = input("1. Lobby\n"
+                    "2. Human resources\n"
+                    "3. Engineering department\n")
+      if floor == '1':
+          print_pause("You push the button for the first floor.")
+          print_pause("After a few moments, you find "
+                      "yourself in the lobby.")
+      elif floor == '2':
+          print_pause("You push the button for the second floor.")
+          print_pause("After a few moments, you find yourself "
+                      "in the human resources department.")
+      elif floor == '3':
+          print_pause("You push the button for the third floor.")
+          print_pause("After a few moments, you find yourself "
+                      "in the engineering department.")
+
+      print_pause("Where would you like to go next?")
+</pre>
+<h2>Solution</h2>
+<pre>
+import time
+
+
+def print_pause(message_to_print):
+    print(message_to_print)
+    time.sleep(1)
+
+
+def intro():
+    print_pause("You have just arrived at your new job!")
+    print_pause("You are in the elevator.")
+
+
+def first_floor(items):
+    print_pause("You push the button for the first floor.")
+    print_pause("After a few moments, you find "
+                "yourself in the lobby.")
+    if "ID card" in items:
+        print_pause("The clerk greets you, but she has already "
+                    "given you your ID card, so there is nothing "
+                    "more to do here now.")
+    else:
+        print_pause("The clerk greets you and gives you your ID "
+                    "card.")
+        items.append("ID card")
+    print_pause("You head back to the elevator.")
+    ride_elevator(items)
+
+
+def second_floor(items):
+    print_pause("You push the button for the second floor.")
+    print_pause("After a few moments, you find yourself "
+                "in the human resources department.")
+    if "handbook" in items:
+        print_pause("The HR folks are busy at their desks.")
+        print_pause("There doesn't seem to be much to do here.")
+    else:
+        print_pause("The head of HR greets you.")
+        if "ID card" in items:
+            print_pause("He looks at your ID card and then "
+                        "gives you a copy of the employee handbook.")
+            items.append("handbook")
+        else:
+            print_pause("He has something for you, but says he can't "
+                        "give it to you until you go get your ID card.")
+    print_pause("You head back to the elevator.")
+    ride_elevator(items)
+
+
+def third_floor(items):
+    print_pause("You push the button for the third floor.")
+    print_pause("After a few moments, you find yourself "
+                "in the engineering department.")
+    print_pause("This is where you work!")
+    if "ID card" in items:
+        print_pause("You use your ID card to open the door.")
+        print_pause("Your program manager greets you and tells "
+                    "you that you need to have a copy of the "
+                    "employee handbook in order to start work.")
+        if "handbook" in items:
+            print_pause("Fortunately, you got that from HR!")
+            print_pause("Congratulatons! You are ready to start your new job "
+                        "as vice president of engineering!")
+        else:
+            print_pause("They scowl when they see that you don't have it, "
+                        "and send you back to the elevator.")
+            ride_elevator(items)
+    else:
+        print_pause("Unfortunately, the door is locked "
+                    "and you can't get in.")
+        print_pause("It looks like you need some kind of "
+                    "key card to open the door.")
+        print_pause("You head back to the elevator.")
+        ride_elevator(items)
+
+
+def ride_elevator(items):
+    print_pause("Please enter the number for the "
+                "floor you would like to visit:")
+    floor = input("1. Lobby\n"
+                  "2. Human resources\n"
+                  "3. Engineering department\n")
+    if floor == '1':
+        first_floor(items)
+    elif floor == '2':
+        second_floor(items)
+    elif floor == '3':
+        third_floor(items)
+
+
+def play_game():
+    items = []
+    intro()
+    ride_elevator(items)
+
+
+play_game()
+</pre>
+
+<p>Step by step:
+<ol>
+  <li>You need to make definition: first_floor(), second_floor(), third_floor()</li>
+  <li>Create ride_elevator()</li>
+  <li>Put in "items" as the parameter on ride_elevator(items)</li>
+</ol> </p>
+
+<h2>Project!</h2>
+<pre>
+  import time
+  import random
+
+
+  monsters = ['Medusa', 'Dragon', 'Mother-in-Law', 'Troll', 'Mad Knight', 'Barbarian']
+  item = []
+  random_monster = random.choice(monsters)
+  #monster1 = random.choice(monsters)
+
+  weapons = ['Excalibur', 'Lanister Magician Staff', 'Gold Champion Dagger', 'Meteor Whip of Doom']
+  random_weapon = random.choice(weapons)
+
+  def pr(word):
+      time.sleep(0.5)
+      print(word)
+
+  def intro():
+      pr("You find yourself standing in an open field, filled "
+         "with grass and yellow wildflowers.")
+      pr("Rumor has it that a dragon is somewhere around here, "
+         "and has been terrifying the nearby village.")
+
+  #def firstChoice():
+
+
+  def startAgain():
+      response = input("Would you like to play again? (y/n)")
+      if response == "y":
+          pr("Excellent! Restarting the game ...")
+      elif response == "n":
+          pr("Thank you for playing Adventure Game! See you again.")
+
+
+  intro()
+  pr("In front of you is a house.")
+  pr("To your right is a dark cave.")
+  pr("In your hand you hold your trusty (but not very effective) dagger.")
+
+  while True:
+      pr("Enter 1 to knock on the door of the house.")
+      pr("Enter 2 to peer into the cave.\n ")
+      response = input("What would you like to do?\n "
+                       "(Please enter 1 or 2)\n ")
+      if response == '1':
+          pr("You approach the door of the house.")
+          pr("You are about to knock when the door opens and out steps a " + random_monster)
+          pr("Eep! This is the " + random_monster +"'s house!")
+          pr("You feel a bit under-prepared for this. And... "+ random_monster + " see you! OMG!\n ")
+          response2 = input("Would you like to (1) fight or (2) run away?")
+          if random_weapon in item:
+              if response2 == '1':
+                  pr("Your weapon shines brightly in your hand as you brace yourself for the attack of"+ random_monster )
+                  pr("But the " + random_monster +" takes one look at your shiny new toy and runs away!")
+                  pr("You have rid the dangerous monster. You are victorius")
+                  break
+              elif response2 == '2':
+                  pr("You run back into the field. Luckily, you don't seem to have been followed.")
+
+          else:
+              if response2 == '1':
+                  pr("You do your best... \n ")
+                  pr("but your dagger is no match for the " + random_monster)
+                  pr("You have been defeated!")
+                  response = input("Would you like to play again? (y/n)")
+                  if response == "y":
+                      pr("Excellent! Restarting the game ...")
+                  elif response == "n":
+                      pr("Thank you for playing Adventure Game! See you again.")
+                      break
+              elif response2 == '2':
+                  pr("You run back into the field. Luckily, you don't seem to have been followed.")
+                  pr("Enter 1 to knock on the door of the house.")
+                  pr("Enter 2 to peer into the cave.\n ")
+                  response = input("What would you like to do?\n "
+                                   "(Please enter 1 or 2)\n ")
+      elif response == '2':
+          pr("You peer cautiously into the cave.")
+          pr("It turns out to be only a very small cave.")
+          pr("Your eye catches a glint of metal behind a rock.")
+          pr("You have found the magical weapon, it's the " + random_weapon + " !\n")
+          item.append(random_weapon)
+          pr("You discard your silly old dagger and take the weapon with you.")
+          pr("You walk back out to the field, and have more confidence to fight the " + random_monster)
+
+  startAgain()
+
+</pre>
+
+<h3>Adventure Game Project</h3>
+<p>Download here: <a href="/projects/adventure_game.py.zip" download>Adventure Game Python3</a> </p>
+</body>
+</html>

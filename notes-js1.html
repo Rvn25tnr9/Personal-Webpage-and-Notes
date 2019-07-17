@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Notes</title></title>
+    <link rel="stylesheet" href="style-notejs.css">
+  </head>
+  <body>
+<h2>JaveScript: Part 1</h2>
+
+<h3>Key notes:</h3>
+<ul>
+  <li>to inspect: command + option + i (MAC) and Ctrl + Shift + i (Windows)</li>
+  <li>NAN : not-a-number, result from the "Hello"%10 </li>
+  <li>undefined, result from var answer - - - - console.log(answer) </li>
+  <li>!going == True</li>
+</ul>
+
+
+<h3>Tweeter function</h3>
+<pre>
+  //Create a input function with less than 150 characters
+  var tweet = prompt("Enter your tweet: ");
+  alert ("You have written " + tweet.length + " characters, you have "
+         + (150-tweet.length) + " left.");
+</pre>
+
+<h3>Love Score Randomizer</h3>
+<pre>
+  function randomNumber() {
+      var n = Math.random();
+      var randomizer = Math.floor((100 * n) + 1);
+      return randomizer;
+  }
+
+  function loveScore() {
+      if (randomizer > 70) {
+          console.log("Your love Score is " + randomizer + " %");
+      }
+      else (randomizer <= 70){
+          console.log("Well, maybe next time with "+ randomizer + " %"");
+      }
+  }
+
+  loveScore();
+</pre>
+
+<h3>Buying Milk Bots: money, costPerBottle, change</h3>
+<pre>
+  function getMilk(money, costPerBottle) {
+      console.log("moveLeft");
+      console.log("moveRight");
+      var a = bottlesQty(money, costPerBottle);
+      var b = giveChance(money, costPerBottle);
+      console.log("I bought "+ a + " bottles of milks, and give you back $" + b)
+  }
+
+  function bottlesQty(money, costPerBottle) {
+      var numberOfBottles = Math.floor(money/costPerBottle);
+      return numberOfBottles;
+
+  }
+
+  function giveChange(money, costPerBottle) {
+      var change = money % costPerBottle;
+      return change;
+  }
+
+  getMilk(10, 3);
+</pre>
+
+<h3>Fizzbuzz</h3>
+<pre>
+  function fizzbuzz() {
+      count = [];
+      count++;
+
+      if (count%3===0 && count%5===0) {
+          output.push("FizzBuzz")
+      } else if (count%3 === 0){
+          output.push("Fizz");
+      } else if (count%5 === 0) {
+          output.push("Buzz");
+      } else {
+          output.push(count);
+      }
+  }
+
+
+  fizzbuzz();
+</pre>
+
+<h3>For Loops</h3>
+<pre>
+for (var i = 0; i<10; i++) {
+	console.log(i)
+}
+
+1
+2
+...
+10
+</pre>
+
+<h3>Sanbox console to test JS in Browser</h3>
+<pre>
+  document.getElementsByTagName("h1")[0].style.color = "#ff0000";
+
+</pre>
+
+<h3>Escaping Characters</h3>
+<pre>
+  "The man whispered, \"please speak to me.\"" <br>
+  <img src="images/js/backlash.png" alt="table" >
+</pre>
+
+<h3>Function IF and Else</h3>
+<pre>
+var weather = "sunny";
+
+if (weather === "snow") {
+    console.log("Bring a coat.");
+} else if (weather === "rain") {
+    console.log("Bring a rain jacket.");
+} else {
+    console.log("Wear what you have on.");
+}
+</pre>
+
+<h3>Murder Case Game</h3>
+<pre>
+  /*
+ * Programming Quiz: Murder Mystery (3-4)
+ */
+
+// change the value of `room` and `suspect` to test your code
+var room = "dining room";
+
+var suspect = "Mr. Parkes";
+var weapon = "";
+var solved = false;
+
+if (room === "gallery") { weapon = "trophy"; suspect = "Ms. Van Cleve";
+solved = true;
+
+} else if (room === "dining room") { weapon = "knife"; suspect = "Mr. Parkes";
+solved = true;
+
+} else if (room === "ballroom") {weapon = "poison"; suspect = "Mr. Kalehoff";
+solved = true;
+
+} else if (room === "billiards room") {weapon = "pool stick"; suspect = "Mrs. Sparr";
+solved = true;
+
+}else {
+solved = false;
+console.log("mystery not solved");
+}
+
+if (solved) {
+console.log(suspect + " did it in the " + room + " with the " + weapon + "\!");
+}
+</pre>
+
+<h3>Ice Cream order strictly in the Menu</h3>
+<pre>
+  * Write a single if statement that logs out the message:
+* "I'd like two scoops of __________ ice cream in a __________ with __________."
+*
+* ...only if:
+*   - flavor is "vanilla" or "chocolate"
+*   - vessel is "cone" or "bowl"
+*   - toppings is "sprinkles" or "peanuts"
+
+//Start
+var flavor = "vanilla";
+var vessel = "no";
+var toppings = "peanuts";
+
+if ((flavor === "vanilla" || flavor === "chocolate") &&
+   (vessel === "cone" || vessel === "bowl") &&
+   (toppings === "sprinkles" || toppings === "peanuts")){
+   console.log("I'd like two scoops of " + flavor + " ice cream in a " + vessel + " with "+ toppings + ".");
+}
+</pre>
+
+<h3>Tshirt size online shop - JS cannot use range 0 < a < 5 but {a>0 and a<5} </h3>
+<img src="images/js/tshirt-chart.png" alt="chart">
+<p>Test your code:
+<ul>
+<li>Width equals 19, Length equals 28; and Sleeve equals 8.21, then size = S.</li>
+<li>Width equals 26, Length equals 33 and Sleeve equals 9.63, then sixe = 2XL.</li>
+<li>Width equals 18, Length equals 29 and Sleeve equals 8.47, then size = N/A.</li>
+</ul> </p>
+<pre>
+  var shirtWidth = 18;
+  var shirtLength = 30;
+  var shirtSleeve = 8.80;
+
+  if (shirtWidth < 20 && shirtLength < 29 &&
+      shirtSleeve < 8.38){
+      console.log("S");
+
+  } else if ((shirtWidth >= 20 && shirtWidth < 22) &&
+             (shirtLength >= 29 && shirtLength < 30) &&
+             (shirtSleeve >= 8.38 && shirtSleeve < 8.63)){
+      console.log("M");
+
+  } else if ((shirtWidth >= 22 && shirtWidth < 24) &&
+             (shirtLength >= 30 && shirtLength < 31) &&
+             (shirtSleeve >= 8.63 && shirtSleeve < 8.88)){
+      console.log("L");
+
+  } else if ((shirtWidth >= 24 && shirtWidth < 26) &&
+             (shirtLength >= 31 && shirtLength < 33) &&
+             (shirtSleeve >= 8.88 && shirtSleeve < 9.63)){
+      console.log("XL");
+
+  } else if ((shirtWidth >= 26 && shirtWidth < 28) &&
+             (shirtLength >= 33 && shirtLength < 34) &&
+             (shirtSleeve >= 9.63 && shirtSleeve < 10.13)){
+      console.log("2XL");
+
+  } else if ((shirtWidth >= 28) &&
+             (shirtLength >= 34) &&
+             (shirtSleeve >= 10.13)){
+      console.log("3XL");
+
+  } else {
+      console.log("N/A")
+  }
+</pre>
+<h2>Advanced Technique : Truthy Falsy, Ternary, Switch</h2>
+<h3>Falsy Value</h3>
+<img src="images/js/falsy.png" alt="falsyvalue">
+
+<h3>Ternary Operator - Shortcut of Conditional IF</h3>
+<img src="images/js/ternary-ope.png" alt="ternary">
+
+<pre>
+  var adult = true;
+  var preorder = true;
+
+  console.log("It costs $" + <mark> (adult ? "40.00" : "20.00") </mark>+
+              " to attend the concert. Pick up your tickets at the " +
+              <mark> (preorder ? "will call" : "gate") + ".")</mark>;
+</pre>
+
+<h3>Ternary Exercise: Animal Food Chains </h3>
+<pre>
+  var eatsPlants = false;
+  var eatsAnimals = false;
+
+  var category = eatsPlants && eatsAnimals ? "omnivore" :
+                  (eatsPlants === true && eatsAnimals === false ? "herbivore" :
+                  (eatsPlants === false && eatsAnimals === true ? "carnivore" : "undefined"))
+  console.log(category);
+
+ <mark>OR OR OR OR OR OR</mark>
+
+  var category = eatsPlants && eatsAnimals ? "omnivore" :
+                 eatsPlants ? "herbivore" :
+                 eatsAnimals ? "carnivore" : undefined;
+</pre>
+
+<h3>Switch - Like a FOR/WHILE but more case-by-case && remember BREAK</h3>
+<img src="images/js/switch-intro.png" alt="switch-intro" width=800pt>
+
+<h3>Exploding Kitten - Falling Through Benefits</h3>
+<img src="images/js/exploding.png" alt="exploding" class=rightwall>
+<pre>
+var tier = "nsfw deck";
+var output = "You’ll receive "
+//case = defauly, nsfw deck, collector's deck, the deck of legends
+
+switch (tier) {
+  case "the deck of legends":
+      output += "a custom card, ";
+  case "collector's deck":
+    output += "a signed version of exploding kitten deck, "
+  case "nsfw deck":
+    output += "one copy of NSFW (Not Safe For Work) Exploding Kitten Card, "
+  default:
+    output += "one copy of exploding kitten card game."
+}
+
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Notes</title></title>
+    <link rel="stylesheet" href="style-notejs.css">
+  </head>
+  <body>
+<h2>JaveScript: Part 2</h2>
+
+<h3>Key notes:</h3>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+<h3>99 Bottle(s) countdown</h3>
+<pre>
+var num = 99;
+
+while (num >= 1){
+    if (num > 2){
+        console.log(num +" bottles of juice on the wall! " + num +
+        " bottles of juice! Take one down, pass it around... " + (num - 1) +
+        " bottles of juice on the wall!");
+
+    }else if(num === 2) {
+        console.log(num +" bottles of juice on the wall! "+num +
+        " bottles of juice! Take one down, pass it around... " + (num - 1) +
+        " bottle of juice on the wall!");
+
+    }else {
+        console.log(num +" bottle of juice on the wall! "+num +
+        " bottle of juice! Take one down, pass it around... " + (num - 1) +
+        " bottles of juice on the wall!");
+    }
+    num -= 1;
+}
+</pre>
+
+<h3>Countdown Liftoff! NASA Rocket</h3>
+
+<pre>
+let countDownTimer = 60;
+while(countDownTimer >= 0){
+  let x= '';
+  switch(countDownTimer){
+    case 50:
+        x+='Orbiter transfers from ground to internal power';
+        break;
+    case 31:
+        x+=`Ground launch sequencer is go for auto sequence start`;
+        break;
+    case 16:
+        x+=`Activate launch pad sound suppression system`;
+        break;
+    case 10:
+        x+=`Activate main engine hydrogen burnoff system`;
+        break;
+    case 6:
+        x+=`Main engine start`;
+        break;
+    case 0:
+        x+=`Solid rocket booster ignition and liftoff!`;
+        break;
+    default:
+        x+=`T-${countDownTimer} seconds`;
+        break;
+  }
+  console.log(x);
+  countDownTimer--;
+  }
+</pre>
+
+<h3>Row and Seat in Theathre</h3>
+<p>26 row and 100 seats in each row</p>
+<pre>
+for (var row = 0; row < 26; row++){
+    for(var seat = 0; seat < 100; seat++){
+        console.log(row +"-" + seat);
+    }}
+</pre>
+
+<h3>Function</h3>
+<pre>
+function reverseString(reverseMe){
+  var reversed ="";
+  for (var i = reverseMe.length - 1; i >= 0; i--){
+    reversed += reverseMe[i];
+  }
+  return reversed;
+}
+console log.(reverseString("Julia"));
+</pre>
+
+<img src="images/js/function.png" alt="function" width="650pt">
+<h3>Laugh Function</h3>
+<pre>function laugh(num) {
+    var laughs = "ha";
+    for(var times = 1; times < num; times++){
+        laughs += "ha";
+    }
+    var total = laughs+"!";
+    return total;
+}
+
+console.log(laugh(3));
+</pre>
+
+<h3>Shadowing Variable</h3>
+<img src="images/js/shadowing.png" alt="shadowing" width = 500px>
+<p>
+you need to declare "var bookTitle = 'The Little Prince'" in the function() to avoid<br>
+the value of bookTitle-in-function overlapped the global scope. Keep it different.
+</p>
+
+<h3>Auto Hoisting Feature</h3>
+<img src="images/auto-hoisting.png" alt="hoisting" border=1pt>
+
+<h3>Building Triangle</h3>
+
+<pre>
+function makeLine(length) {
+    var line = "";
+    for (var j = 1; j <= length; j++) {
+        line += "* ";
+    }
+    return line + "\n";
+    console.log(line);
+}
+
+function buildTriangle(row) {
+  var triangle = '';
+  for (var n = 1; n <= row; n++) {
+    triangle += makeLine(n);
+  }
+  return triangle;
+}
+console.log(buildTriangle(10));
+</pre>
+<h3>Two ways to define function</h3>
+
+  <img src="images/js/define.png" alt="define-function" width="500px"><br><br>
+  <img src="images/js/fun-expre.png" alt="fun-expression" width="500px">
+
+<h3>Hahaha function exercise</h3>
+<pre>
+  var laugh = function (max) {
+      var witty = "ha";
+      for (var times = 1; times < max; times++){
+          witty += "ha";
+      }
+      var total = witty +"!";
+      return total;
+  }/* finish the function expression */
+
+  console.log(laugh(10));
+</pre>
+
+<h3>Inline Quiz: Emotion, Happy & laugh(2)</h3>
+<pre>
+
+var myString;
+var myFunc = function laugh(max){
+    var witty = "ha";
+    for (var times = 1; times < max; times++){
+        witty += "ha";
+    }
+    var total = witty +"!";
+    return total;
+}
+
+
+// don't change this code
+<mark>function emotions(myString, myFunc) {
+    console.log("I am " + myString + ", " + myFunc(2));
+}</mark>
+
+emotions("happy", function laugh(max){
+    var witty = "ha";
+    for (var times = 1; times < max; times++){
+        witty += "ha";
+    }
+    var total = witty +"!";
+    return total;
+})
+<mark>OR OR OR OR OR OR</mark>
+
+emotions("happy",function laugh(num){
+var laughs = ""
+  for(var i=1;i<=num;i++){
+    laughs += "ha"
+  } return laughs + "!"})
+</pre>
+
+<h2>Arrays</h2>
+<pre>
+var donut = ["glazed", "chocolate", "coconut", "creme", "berry", "jelly filled"];
+
+console.log(donut[2]); - - - // call the coconut flavor
+
+donuts[1] = "creme brulee"; // change the array[1] to new donut.
+
+</pre>
+
+<h3>Array Methods - 6-11</h3>
+<ul>
+  <li>Length</li>
+  <li>Push and Pop</li>
+  <li>Splice</li>
+</ul>
+
+<h3>Loops in Array</h3>
+<pre>
+var donuts = ["jelly donut", "chocolate donut", "glazed donut"];
+
+// the variable `i` is used to step through each element in the array
+for (var i = 0; i < donuts.length; i++) {
+    donuts[i] += " hole";
+    donuts[i] = donuts[i].toUpperCase();
+}
+</pre>
+
+<h3>forEach Loops Function</h3>
+<pre>
+for (var i = 0; i < donuts.length; i++) {
+  donuts[i] += " hole";
+  donuts[i] = donuts[i].toUpperCase();
+  console.log(donuts[i]);
+}
+
+<mark>AND AND AND AND AND</mark>
+
+words = ["cat", "in", "hat"];
+words.forEach(function(word, num, all) {
+  console.log("Word " + num + " in " + all.toString() + " is " + word);
+});
+</pre>
+
+<h3>Re-do: Quiz forEach Loop</h3>
+<pre>
+  /*
+ * Programming Quiz: Another Type of Loop (6-8)
+ *
+ * Use the existing `test` variable and write a `forEach` loop
+ * that adds 100 to each number that is divisible by 3.
+ *
+ * Things to note:
+ *  - you must use an `if` statement to verify code is divisible by 3
+ *  - you can use `console.log` to verify the `test` variable when you're finished looping
+ */
+
+var test = [12, 929, 11, 3, 199, 1000, 7, 1, 24, 37, 4,
+    19, 300, 3775, 299, 36, 209, 148, 169, 299,
+    6, 109, 20, 58, 139, 59, 3, 1, 139 ];
+
+
+
+//for (var n = 0; n < test.length; n++){
+//   if (test[n] % 3 === 0) {
+//      test[n] += 100;
+//      console.log(test[n]);
+//    }}
+
+
+test.forEach(function (num,index,array) {
+    if (num % 3 === 0) {
+        array[index] = num + 100;
+    }
+});
+
+console.log(test);
+</pre>
+
+</body>
+</html>

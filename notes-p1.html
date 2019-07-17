@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pyhton Notes</title>
+    <link rel="stylesheet" href="style-notep.css">
+  </head>
+
+  <body>
+<h3>Turtle</h3>
+
+
+Example of Finite Loops with Turtle:
+<pre>
+import turtle
+george = turtle.Turtle()
+george.color("yellow")
+for <em>whatever</em> in [1, 2, 3, 4]:
+    george.forward(100)
+    george.right(90)
+    george.penup()
+    george.pendown()
+</pre>
+<br>
+<p>Shortcut or hotkey for comment is "command" + slice /.<br>
+# Phyton use Hastag for comment.<br><br>
+  <img src="images/python/assignmentStatement.png" alt="assignmentStatement-1" float:right>
+<br>
+<br>
+<p>
+  What does <strong>amy.forward(100)</strong>?<br>
+  We're calling the <em>forward</em> method on a <em>Turtle</em> object named <em>amy</em>, and giving the input <em>100.</em>
+</p><br>
+<br>
+<p>
+  <img src="images/python/PythonStatement.png" alt="statementtype" border=2pt>
+</p>
+<pre>
+  import turtle
+  amy = turtle.Turtle() 
+  amy.color("cyan")
+  some_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  for item in some_list:
+      amy.forward(50)
+      amy.right(30)
+</pre>
+<h3>How to code the 3 horizontal lines in different colors:</h3>
+<pre>
+import turtle 
+amy = turtle.Turtle() 
+niceColor = ["red", "orange", "yellow"] 
+amy.penup() 
+amy.back(140)
+amy.pendown() 
+for justNice in niceColor: 
+    amy.color(justNice)
+    amy.forward(50) 
+    amy.penup()
+    amy.forward(50)
+    amy.pendown()
+</pre><br>
+
+<h3>3 kinds of errors:</h3>
+<ol>
+  <li>Syntax Error: Grammer/spelling error.</li>
+  <li>Usage Error: When you ask computer to do something that doesn't make sense (string and variable wrong usage)</li>
+  <li>Logic Error: The solution didn't solve the problem.</li>
+</ol>
+
+
+<hr>
+<h3>Conditional In Loops- Colorful Turtle</h3>
+<pre>
+import turtle
+jack = turtle.Turtle() 
+jack.width(5)
+
+jack.color("yellow") 
+for side in range(4):
+    if side == 1:  - - - - - - - //Make line 2 has Blue color
+        jack.color("blue") 
+    else:  - - - -  - - - // Make line 1,3,4 have Yellow Color 
+        jack.color("yellow") 
+    jack.forward(100)
+    jack.right(90) 
+</pre>
+
+<hr>
+<h3>Modulus Operations : Hands of the Clocks</h3>
+<p>The modulo operation is kind of like the hands of a clock. The minute hand starts at 0 and counts up to 59, then goes back to 0 at the beginning of the next hour. Like this:
+
+0, 1, 2, 3 . . . 57, 58, 59, 0, 1, 2, 3 . . . 57, 58, 59, 0, 1, 2, 3 . . . <strong>with %60</strong> </p>
+<br><br>
+<p>
+import turtle <br>
+amy = turtle.Turtle() <br>
+amy.color("yellow") <br>
+amy.width(2) <br>
+<br>
+def go(): <br>
+    amy.forward(50) <br>
+<br>
+for n in range(6): <br>
+    go() <br>
+    if n%2 == 0: <br>
+        amy.left(90) <br>
+    else: <br>
+        amy.right(90) <br>
+</p>
+<br>
+<hr><br>
+<h3>Fizz Buzz Challenges:</h3>
+<p class="code">
+  for num in range(16): <br>
+      if num % 3 == 0: <br>
+          fizz(t) <br>
+          if num%5 == 0: <br>
+              buzz(t)<br>
+      else:<br>
+          if num%5 == 0: <br>
+             buzz(t)<br>
+          else: <br>
+              plain(t) <br>
+      t.color("gray") <br>
+      t.forward(22) <br>
+      # Advance to the next bead spot.<br>
+</p>
+<h3>Learn to Make Poligon with 3 arguments - length, side, color</h3>
+<img src="images/python/LearnFunction.png" alt="polygon"> <br>
+<br>
+<h3>Drawing polygons with loops:</h3>
+<img src="images/python/polygon.png" alt="12-polygons"><br>
+<br>
+<h3>More Shapes with Turtle :3</h3>
+<img src="images/python/more-shapes.png" alt="moreshapes"><br>
+<h3>Calling Function inside Function</h3>
+<img src="images/python/Callingcalling.png" alt="functionception" border=1pt>
+<hr>
+<h2>Random Module</h2>
+<p class="code">cards = ["ace", 2, 3, 4, 5, 6, 7, 8, 9, "jack", "queen", "king"] <br>
+my_card = random.choice(cards)<br></p>
+
+<p>random.randint <br>
+randint stands for "random integer", because that's exactly what it does—it returns a random integer. Here's an example: <br>
+<em>die_roll = random.randint(1, 6)</em><br>
+</p>
+<hr>
+<h3>Use 2 conditional with AND</h3>
+<p>if x > 0 and x < 10: <br>
+    # Do something <br>
+In this case, both x > 0 and x < 10 have to be True for the code in the if statement to run. In other words, this is saying "if x is both greater than 0 and less than 10, run this code.
+</p><br>
+
+<h2>How to put x-y-cordinate limit with Cute Turtle Icon</h2>
+<p>
+  import turtle <br>
+<br>
+  t = turtle.Turtle() <br>
+  t.color("lime") <br>
+  t.width(3) <br>
+  t.penup() <br>
+  t.shape("turtle") <br><br>
+
+  for step in range(200): <br>
+      t.forward(1) <br>
+      if t.xcor()>40 : <br>
+          t.right(180) <br>
+      if t.xcor()< -40 : <br>
+          t.left(180) <br>
+</p>
+<h2>Create a random turtle in the limit</h2>
+<img src="images/python/randomturtle.png" alt="randomTurtle">
+<br>
+<hr>
+<h2>Shell</h2>
+<p>The shell is a command-line interface that many programmers use to work with files, directories, and programs. </p>
+<br><br>
+<hr>
+<hr>
+<h2>Python With Idle, Bash and Atom</h2>
+<p>In Bash, you can locate the python file with <strong>cd and ls</strong>, after that write "python printing.py" to execute the program. </p>
+<p>In Python Launcher, you can operate interactive mode of Python. You can also achieve real-time editor in bash by writting "python3", and press 'control D in MAC' or 'control Z in Windows' / write "exit()" to move out.</p>
+<br><br>
+<h3>Print command to debug</h3>
+>>> for length in range(10): <br>
+...    <strong> print(length) </strong># Add this line! <br>
+...     dizzy.forward(length*10) <br>
+...     dizzy.right(90) <br><br>
+
+<h3>Settle the TypeError in Python</h3>
+<p>>>> n = int(input("Please enter a number:")) <br>
+Please enter a number:4</p> <br><br>
+
+<hr>
+<h3>How to create your own module to be IMPORTED in Python</h3>
+<img src="images/python/create-module-to-import.png" alt="import-module"> <br>
+<p>Remember to put "chance" + dot(.) before the function call. <br>
+Just like what we did to random.choice(), random.randint(), turtle.Turtle() <br>
+This is called <strong>Dot Notation</strong> is used to say where something is located.<br><br>
+You can also import a webpage like  <em><strong> import antigravity</strong></em>: it will open a web browser.</p>
+<br><br>
+<hr>
+<h2>Dive Deeper in Strings and Text</h2>
+<img src="images/python/bind-variable.png" alt="bindBind"><br>
+
+<p>Few important notes:
+<ol>
+  <li>It is important to put backlash before the quote to avoid confusion within python. <br>
+  print("It's long, said the knight, but it's very beautiful!") - - - this'll give error <br></li>
+  <li>print('"It\'s long," said the knight, "but it\s very beautiful.\"') - - - use backlash <br></li>
+  <li>print("this could be great\nBecause blabla ") - - - \n create a new line of sentence below. <br></li>
+  <li>>>>print(""" - - - - - triple quote to make writting more convinience <br>
+  ....This could be less tedious - - - -  (hit enter to go to new line and they will create ...) <br>
+  ....Continue to write again. <br>
+  ....""") </li>
+</ol> </p>
+<br><br>
+<h3>Indexing and Negative indexes </h3>
+<p>word [-1] is the last character <br>
+word[-2] is the second last character.</p> <br>
+
+<br><br>
+<h3>Print True if the string starts with "K"</h3>
+def start_K(s): <br>
+    if s[0] == "K": <br>
+        return True <br>
+    else: <br>
+        return False <br><br>
+name = input("key in a name: ") <br>
+print(start_K(name)) <br><br>
+>>> range(0, 10, 2) <br>
+[0, 2, 4, 6, 8] <br>
+<br>
+<h3>Slicing</h3> <br>
+def word_triangle(word): <br>
+..length = len(word) <br>
+.....for n in <strong> range(length):</strong> <br>
+........print(word[:length - n]) <br>
+      <br>
+s = input("Key in your random word: \n") <br>
+word_triangle(s) <br>
+<br>
+
+<h3>f-string Concatenation</h3>
+<p>
+... animal = "aardwolf" <br>
+... food = "termites" <br>
+... f"The {animal} eats {food}." <br></p>
+<br>
+<hr>
+<h3>Strings to numbers to Strings</h3>
+<img src="images/python/intstr.png" alt="Strint" width = "500pt" >
+<br><br> <hr>
+<h3>Compare the first Character</h3>
+<ul>
+  <li>def startwith(s1,s2): <br>
+  ...  if s1[0] == s2[0]: <br>
+    ......    return True <br>
+    ...else: <br>
+      ......  return False <br>
+<br>
+name = startwith("Halo", "Buah") <br>
+print(name) <br><br>
+<li> def starts_with(s1, s2): <br>
+    >>>>return s1[0] == s2[0]
+</li> <br>
+<li><strong>With all the positions long and short</strong> <br>
+e.g. start_with("Banana", "Ban") <br>
+The code is: <br> <br>
+def Compare(long, short): <br>
+for position in range(len(short)): <br>
+>>if long[position] != short[position]: <br>
+>>>>>return False <br> </li> <br>
+<li>
+<img src="images/python/samesame.png" alt="startwith3/3" border=2px>
+  </li>
+  <li>def start_with(long, short): <br>
+...    if long[0:len(short)] == short: <br>
+  .....      return True <br>
+  ...  return False <br> </li> <br>
+  <li>def start_with(long,short): <br>
+  ...return long[0:len(short)] == short  <br> </li> <br>
+  <li>In conclusion <br>
+  <img src="images/python/v3.png" alt="conclusion" border=2px> </li>
+</ul> <br><br>
+<hr>
+<h3>Boolean Value: True/False</h3>
+<p>Boolean Operations: And -- or <br>
+<img src="images/python/boolean.png" alt="andor"> </p> <br><br><hr>
+
+<h3>Operations on List</h3>
+We want to make total_length(['Queen', 'rules']) the number characters in the list. <br>
+<pre>
+<strong>def total_length(list_of_strings): </strong>
+   total = 0
+      for string in list_of_strings:
+        total = total + list_of_strings
+      return total
+</pre> <br><br>
+<h3>Augmented Assignments</h3>
+<br>
+<img src="images/python/aug.png" alt="augmented-assignment" border = 1pt>
+ <br> <br>
+<h3>While Loops</h3>
+<p>Combination of Loop, IF and Boolean. This will keep repeating if it produce "True" boolean, and stop for 1x "False" <br>
+For example: Password Checker<br>
+<pre>
+<strong>def Password_check(s): </strong>
+     while input("Password: ") != 'swordfish':
+         print("Wrong! Try again!")
+     print("Okay, come on in!")
+
+>> Password_check()
+
+</pre> </p> <br>
+
+<h3>Create a Countdown Blastoff!</h3>
+<pre>
+  n = 10
+  while n > 1:
+      time.sleep(1)
+      print(n)
+      n -= 1
+  print("Blastoff!")
+</pre> <br>
+
+<h3>Print Abracadabra Bakcward</h3>
+<pre>
+s = "abracadabra"
+index = len(s)
+while index != 0:
+    index -= 1
+    print(s[0:index])
+</pre>
+
+<h3>Until_dot function</h3>
+<img src="images/python/untildot.png" alt="untildotproject"> <br>
+<pre>
+def until_dot(word):
+    index = 0
+    while index < len(word) and word[index] != ".":
+        index += 1
+    print(word[:index] + ".")
+
+word = input("Enter multiple sentences: ")
+until_dot(word)
+</pre> <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

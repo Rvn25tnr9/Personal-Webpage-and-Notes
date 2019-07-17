@@ -1,0 +1,62 @@
+p {
+  color: dark grey;
+  font-family: 'Merriweather', serif;
+}
+body{
+  background-color: rgb(90%, 90%, 90%);
+}
+.highlight{
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.done{
+  text-decoration: line-through;
+}
+.blueBox{
+  border: 5px solid blue;
+  padding: 0.5em;
+  width: 150px;
+  height: 100px;
+  float: right;
+}
+
+.redBox{
+ border:5px solid red;
+ margin-top: 0.5em;
+ padding: 0.5em;
+ width: 20px;
+ height: 20px;
+ float: right;
+}
+
+.lorem{
+  font-family: 'Lato', sans-serif;
+  color: #17223b;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box{
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.red{
+  background-color: red;
+}
+
+.green{
+  background-color: green;
+}
+
+.yellow{
+  background-color: yellow;
+}

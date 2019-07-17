@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pyhton Notes</title>
+    <link rel="stylesheet" href="style-notep.css">
+  </head>
+  <body>
+<h2>Finding Substrings</h2>
+Typical questions answered with substring:
+<ul>
+  <li>Does the word of chocolate appear in the work on Shakespeer?</li>
+  <li>How many times does word chocolate appear in this book?</li>
+  <li>Where is the location the word "Chocolate" in that book?</li>
+</ul> <br>
+
+<h3>Step 1: Understand the type of answer</h3>
+<img src="images/python/answertype.png" alt="type"> <br>
+
+<h3>Writing an <em>is_substring</em> function </h3>
+<pre>
+>>>is_substring('oo', 'book')
+TRUE
+
+>>>is_substring('pony', 'abracadbra')
+FALSE
+
+Other example of finding Substring in String:
+<strong>def keyin(substring, string): </strong>
+    index = 0
+    count = 0
+    while index < len(string):
+        if string[index:index+len(substring)] == substring:
+            print ("True")
+            count += 1
+        index += 1
+    print ("False, total match: " + str(count))
+
+string = input("Enter your string: ")
+substring = input("Enter your substring: ")
+keyin(substring, string)
+</pre>
+
+<h4>Ste[ 2: Finding words in senteces</h4>
+<pre>
+  def count_substring(string, target):
+      index = 0
+      total = 0
+      while index < len(string):
+          if string[index: index+len(target)] == target:
+              total += 1
+              index = index += len(target)
+          else:
+              index += 1
+      return total
+
+  print(count_substring('love, love, love, all you need is love', 'love'))
+</pre>
+
+<h4> Step 3: Locate words in sentence</h4>
+<pre>
+  def locate_first(string, target):
+      total = 0
+      index = 0
+      while index < len(string):
+          if string[index : index + len(target)] == target:
+              return index
+          else:
+              index += 1
+      return -1
+
+  print(locate_first('all your bass are belong to us', 'bas'))
+</pre> <br>
+
+
+<h4>Create multilpe List</h4>
+<pre>
+  def locate_all(string, sub):
+      matches = []
+      index = 0
+      while index < len(string):
+              if string[index : index + len(sub)] == sub:
+                  matches.append(index)
+                  index += len(target)
+              else:
+                  index += 1
+          return match      #remember to type 1 return
+
+  print(locate_first('a bas ll your bass are belong bas to us', 'bas'))
+</pre> <br>
+<h3>Step 4: More methods on strings</h3>
+
+<h3>Step 5: Join</h3>
+<p>words = ["my", "dog", "has", "fleas"] <br>
+" ".join(words) <br>
+<strong>result:</strong> 'My dog has fleas'<br> </p>
+<pre>
+<strong>Put linebreak in breakify</strong></strong>
+def breakify(strings):
+    return "<br>".join(strings)
+</pre>
+
+<h3>Find, Remove & Replace - words/attributes in the List</h3>
+<strong>with: </strong> output.append(string[index])
+
+Since string is immutable, we cant change a string once it has been created. but we can: <br>
+Take characters or slices from that string, then use <strong>join</strong> method to put them back together to form new string. <br>
+For example: <br> <br>
+<pre>
+word = "Hello World!"
+output = []
+index = 0
+while index < len(word):
+    output.append(word[index])
+    index += 1
+print(output)
+</pre> <br>
+
+<h3>Find and Remove</h3>
+<p>Someone has taken your beautiful string..<b> 'SPAM!HelloSPAM! worlSPAM!d!'</b> <br> </p>
+<pre>
+def remove_substring(string, substring):
+      newOutput = []
+      index = 0
+      while index < len(string):
+          if string[index : index + len(substring)] == substring:
+              index += len(substring)
+          else:
+              newOutput.append(string[index])
+              index += 1
+      return "".join(newOutput)
+</pre>
+
+<h3>Find, Remove & Replace Case</h3>
+<p> replace_substring('Hot SPAM!drop soup, and curry with SPAM!plant.', 'SPAM!', 'egg') <br> </p>
+<pre>
+def remove_substring(string, substring, replacement):
+      newOutput = []
+      index = 0
+      while index < len(string):
+          if string[index : index + len(substring)] == substring:
+              <mark>newOutput.append(replacement)</mark>
+              index += len(substring)
+          else:
+              newOutput.append(string[index])
+              index += 1
+      return "".join(newOutput)
+</pre> <br>
+<h3>Exercise: Silly Sentences</h3>
+There are 3 lists consist of Template, verb and words in other python file. <br>
+How to create this: <br>
+<pre>
+import random
+import words
+
+def silly_string(nouns, verbs, templates):
+
+    template = random.choice(templates)   ..#Choose a random template
+    output = []    ..# We'll append strings into this list for output.
+
+    # Keep track of where in the template string we are.
+    index = 0
+
+    while index < len(template):
+        if template[index:index+8] == '{{noun}}':
+          <mark># Add a random noun to the output.</mark>
+            output.append(random.choice(nouns))
+            index += 8
+        elif template[index:index+8] == '{{verb}}':
+            <mark># Add a random verb to the output.</mark>
+            output.append(random.choice(verbs))
+            index += 8
+        else:
+            <mark># Copy a character to the output.</mark>
+            output.append(template[index])
+            index += 1
+
+    <mark># Join the output into a single string.</mark>
+    output = ''.join(output)
+    return output
+
+
+if __name__ == '__main__':
+    for n in range(5):   ..# to generate 5 times
+        print(silly_string(words.nouns, words.verbs, words.templates))
+</pre>
+
+  </body>
+</html>
